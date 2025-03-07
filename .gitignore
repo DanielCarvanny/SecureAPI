@@ -18,7 +18,6 @@ target/
 *.iws
 *.iml
 *.ipr
-/resources/data.sql
 /docker/
 
 ### NetBeans ###
@@ -35,6 +34,4 @@ build/
 .vscode/
 
 ### Keys ###
-/resources/app.key
-/resources/app.key.pub
-
+src/main/resources/key
