@@ -14,7 +14,6 @@ import tech.buildrun.springsecurity.service.UserService;
 import java.util.List;
 
 @RestController
-@Transactional
 public class UserController {
 
     private final UserService userService;
@@ -25,6 +24,7 @@ public class UserController {
     }
 
     @PostMapping("/users")
+    @Transactional
     public ResponseEntity<Void> newUser(@RequestBody CreateUserDTO dto) {
         userService.createUser(dto);
         return ResponseEntity.ok().build();
