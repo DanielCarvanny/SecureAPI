@@ -1,6 +1,8 @@
 package tech.buildrun.springsecurity.entity;
 
 import jakarta.persistence.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import tech.buildrun.springsecurity.controller.dto.LoginRequest;
 
 import java.util.Set;
 import java.util.UUID;
@@ -14,13 +16,6 @@ public class User {
     @Column(name = "user_id")
     private UUID userId;
 
-    @Column(unique = true, name = "username")
-    private String username;
-
-    private String email;
-
-    private String password;
-
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "tb_users_roles",
@@ -29,12 +24,35 @@ public class User {
     )
     private Set<Role> roles;
 
+    @Column(unique = true, name = "username")
+    private String username;
+
+    private String password;
+
+    public User() {
+    }
+
+    public User(UUID userId, Set<Role> roles, String username, String password) {
+        this.userId = userId;
+        this.roles = roles;
+        this.username = username;
+        this.password = password;
+    }
+
      public UUID getUserId() {
         return userId;
     }
 
     public void setUserId(UUID userId) {
         this.userId = userId;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     public String getUsername() {
@@ -45,19 +63,16 @@ public class User {
         this.username = username;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isLoginCorrect(LoginRequest loginRequest, PasswordEncoder passwordEncoder) {
+         return passwordEncoder.matches(loginRequest.password(), this.password);
+
     }
 }
