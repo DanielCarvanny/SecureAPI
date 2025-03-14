@@ -1,4 +1,4 @@
-# 🐦 Twitter Simplificado
+#  🔐 SecureAPI
 Este projeto é uma versão simplificada do Twitter, desenvolvida com Spring Boot e Spring Security 6. Ele inclui funcionalidades como autenticação com JWT, controle de permissões baseado em roles, e operações básicas como criação e exclusão de tweets.
 
 ## 💫 Visão Geral
