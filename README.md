@@ -1,7 +1,7 @@
-🐦 #Twitter Simplificado
+# 🐦 Twitter Simplificado
 Este projeto é uma versão simplificada do Twitter, desenvolvida com Spring Boot e Spring Security 6. Ele inclui funcionalidades como autenticação com JWT, controle de permissões baseado em roles, e operações básicas como criação e exclusão de tweets.
 
-💫 ##Visão Geral
+## 💫 Visão Geral
 O projeto consiste em uma API backend que simula as funcionalidades básicas de uma rede social, como:
 
 Autenticação e Autorização: Utiliza JWT (JSON Web Tokens) para gerenciar sessões de usuários e controlar acesso a endpoints.
@@ -12,7 +12,7 @@ Gerenciamento de Tweets: Permite a criação, listagem e exclusão de tweets (ap
 
 Feed Público: Lista todos os tweets de forma paginada, acessível sem autenticação.
 
-🛠 ##Ferramentas e Conceitos Utilizados
+## 🛠 Ferramentas e Conceitos Utilizados
 Spring Boot: Framework principal para desenvolvimento da API.
 
 Spring Security 6: Para autenticação e autorização.
